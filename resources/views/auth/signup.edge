@@ -1,43 +1,45 @@
 @layout('layouts.app')
 
+@section('extracss')
+{{ style('form') }}
+@endsection
+
 @section('title')
-JobPostr - Signup
+JobPostr - Sign up
 @endsection
 
 @section('content')
-  <h1>JOin now</h1>
+  <h1>Join now</h1>
 
-  @each(job in jobs)
   <div class="job-container">
-    <form action="{{ route('UserController.create') }}" method="POST">
+      <form action="{{ route('UserController.create') }}" method="POST">
         {{ csrfField() }}
+
         <label for="username">Username</label>
-        <input type="text" name="username" value="{{ old('username','') }}" placeholder="Enter your name" >
+        <input type="text" name="username" value="{{ old('username', '') }}">
         @if(hasErrorFor('username'))
             <span>
                 {{ getErrorFor('username') }}
             </span>
         @endif
 
-        <label for="email">Username</label>
-        <input type="text" name="email" value="{{ old('email','') }}" placeholder="Enter your email" >
+        <label for="email">Email</label>
+        <input type="email" name="email" value="{{ old('email', '') }}">
         @if(hasErrorFor('email'))
             <span>
                 {{ getErrorFor('email') }}
             </span>
         @endif
 
-        <label for="username">Username</label>
-        <input type="text" name="username" value="{{ old('username','') }}" placeholder="Enter your name" >
-        @if(hasErrorFor('username'))
+        <label for="password">Password</label>
+        <input type="password" name="password">
+        @if(hasErrorFor('password'))
             <span>
-                {{ getErrorFor('username') }}
+                {{ getErrorFor('password') }}
             </span>
         @endif
 
         <button type="submit">Join now</button>
-    </form>
+      </form>
   </div>
-  @endeach
-  
 @endsection
