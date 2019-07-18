@@ -1,0 +1,43 @@
+@layout('layouts.app')
+
+@section('title')
+JobPostr - Signup
+@endsection
+
+@section('content')
+  <h1>JOin now</h1>
+
+  @each(job in jobs)
+  <div class="job-container">
+    <form action="{{ route('UserController.create') }}" method="POST">
+        {{ csrfField() }}
+        <label for="username">Username</label>
+        <input type="text" name="username" value="{{ old('username','') }}" placeholder="Enter your name" >
+        @if(hasErrorFor('username'))
+            <span>
+                {{ getErrorFor('username') }}
+            </span>
+        @endif
+
+        <label for="email">Username</label>
+        <input type="text" name="email" value="{{ old('email','') }}" placeholder="Enter your email" >
+        @if(hasErrorFor('email'))
+            <span>
+                {{ getErrorFor('email') }}
+            </span>
+        @endif
+
+        <label for="username">Username</label>
+        <input type="text" name="username" value="{{ old('username','') }}" placeholder="Enter your name" >
+        @if(hasErrorFor('username'))
+            <span>
+                {{ getErrorFor('username') }}
+            </span>
+        @endif
+
+        <button type="submit">Join now</button>
+    </form>
+  </div>
+  @endeach
+  
+@endsection
