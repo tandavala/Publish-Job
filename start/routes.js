@@ -22,7 +22,9 @@ Route.get('/', 'JobController.home');
 Route.on('/signup').render('auth.signup');
 Route.post('/signup','UserController.create').validator('CreateUser');
 Route.on('/login').render('auth.login');
-Route.post('/login','UserControler.login').validator('LoginValidator');
+
+Route.post('/login','UserController.loginUser').validator('LoginUser');
+
 Route.get('/logout', async({ auth, response }) => {
     await auth.logout();
     return response.redirect('/');

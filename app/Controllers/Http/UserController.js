@@ -20,10 +20,20 @@ class UserController {
 
          } catch (error) {
              console.log(error)
-         }
-
-         
+         } 
     }
+    async loginUser({ request, response, auth, session }){
+        
+        const { email, password } = request.all();
+
+        try {
+            await auth.attempt(email, password);
+            return response.redirect('/');
+        } catch (error) {
+            session.flash({loginError: 'These credentials do not work.'})
+            return response.redirect('/login');
+        }
+   }
 }
 
 module.exports = UserController
