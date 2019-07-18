@@ -1,16 +1,40 @@
 @layout('layouts.app')
 
+@section('extracss')
+{{ style('form') }}
+@endsection
+
 @section('title')
-JobPostr - Login
+JobPostr - Sign up
 @endsection
 
 @section('content')
-  <h1>Login</h1>
+  <h1>Join now</h1>
 
-  @each(job in jobs)
   <div class="job-container">
-    
+      @if(flashMessage('loginError'))
+      <span>{{ flashMessage('loginError') }}</span>
+      @endif
+
+      <form action="{{ route('UserController.login') }}" method="POST">
+        {{ csrfField() }}
+
+        <label for="email">Email</label>
+        <input type="email" name="email" value="{{ old('email', '') }}">
+        @if(hasErrorFor('email'))
+            <span>
+                {{ getErrorFor('email') }}
+            </span>
+        @endif
+
+        <label for="password">Password</label>
+        <input type="password" name="password">
+        @if(hasErrorFor('password'))
+            <span>
+                {{ getErrorFor('password') }}
+            </span>
+        @endif
+         <button type="submit" >Login</button>
+      </form>
   </div>
-  @endeach
-  
 @endsection
