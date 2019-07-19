@@ -34,14 +34,27 @@ class JobController {
     return response.redirect('back')
     }
     async delete({ response, session, id }){
-        const post = Job.find(id);
-        post.destroy()
+        const post = await Job.find(id);
+        await post.delete();
+
         session.flash({ message: 'Emprego eliminado' })
         return response.redirect('back')
     }
-    async show({ view, response, session, id }){
-        const post = Job.find(id);
-        return view.render('job', { job: jobs.toJSON() })
+    async show({ view, auth, response, session, params }){
+      const post = await Job.find(params.id)
+
+      return view.render('job', { job: post.toJSON()});
+    }
+    async update({ view, auth, response, session, params }){
+      const post = await Job.find(params.id)
+      
+      post.title = request.all().title;
+      post.link = request.all().link;
+      post.description = request.all().description;
+
+      await post.save()
+      session.flash({ message: 'Emprego eliminado' })
+      return response.redirect('/post-a-job')
     }
 }
 

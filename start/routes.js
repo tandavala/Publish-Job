@@ -32,6 +32,7 @@ Route.get('/logout', async({ auth, response }) => {
 
 
 Route.get('/post-a-job', 'JobController.userIndex').as('my.jobs');
-Route.get('/post-a-job/delete/:id', 'JobController.delete');
+Route.get('/post-a-job/delete/:id', 'JobController.delete').as('delete');
 Route.get('/post-a-job/edit/:id', 'JobController.edit');
+Route.get('/post-a-job/show/:id', 'JobController.show').as('show');
 Route.post('/post-a-job/create', 'JobController.create').validator('CreateJob');
