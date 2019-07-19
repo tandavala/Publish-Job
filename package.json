@@ -8,7 +8,7 @@
     "node": "8.5.0"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "ENV_SILENT=true node server.js",
     "test": "node ace test"
   },
   "keywords": [
