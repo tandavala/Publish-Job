@@ -18,7 +18,8 @@ module.exports = {
   | interacting with SQL databases.
   |
   */
- // connection: Env.get('DB_CONNECTION', 'postgres'),
+  connection: Env.get('DB_CONNECTION', 'pg'),
+ /*
  connection: {
 
     host: Env.get('DB_HOST', DATABASE_URL.host),
@@ -26,7 +27,7 @@ module.exports = {
     user: Env.get('DB_USER', DATABASE_URL.username),
     password: Env.get('DB_PASSWORD', DATABASE_URL.password),
     database: Env.get('DB_DATABASE', DATABASE_URL.pathname.substr(1))
-},
+},*/
 
   /*
   |--------------------------------------------------------------------------
