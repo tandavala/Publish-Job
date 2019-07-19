@@ -3,7 +3,7 @@
 class CreateJob {
   get rules () {
     return {
-      'title' : 'required|unique:users',
+      'title' : 'required',
       'link' : 'required',
       'description' : 'required'
     }

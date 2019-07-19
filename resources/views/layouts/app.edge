@@ -20,7 +20,7 @@
                 <li><a href="/">Trabalhos</a></li>
                 @loggedIn
                 <li><a href="/"><small>Ola, {{ auth.user.username }}</small></a></li>
-                <li><a href="/"><small>Minhas publicacoes</small></a></li>
+                <li><a href="{{ route('my.jobs') }}"><small>Minhas publicacoes</small></a></li>
                 <li><a href="/logout"><small>Sair</small></a></li>
 
                 @else

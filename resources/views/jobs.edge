@@ -32,13 +32,13 @@ JobPostr - Sign up
         @endif
 
         <label for="descripton">Descricao</label>
-        <input type="descricao" name="descricao">
+        <input type="descricao" name="descricao" >
         @if(hasErrorFor('descricao'))
             <span>
                 {{ getErrorFor('descricao') }}
             </span>
         @endif
-         <input type="submit" value="Join now">
+         <button type="submit">Publicar Emprego</button>
       </form>
   </div>
 @endsection
