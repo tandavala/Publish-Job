@@ -22,7 +22,7 @@ class User extends Model {
   }
 
   jobs() {
-    return this.hasMany('App/Models/Jobs')
+    return this.hasMany('App/Models/Job')
   }
   /**
    * A relationship on tokens is required for auth to
