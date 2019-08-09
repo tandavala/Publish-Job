@@ -4,38 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {{ style('bootstrap.min') }}
+    {{ style('custom') }}
     {{ style('style') }}
 
     @!section('extracss')
+
 
     <title>
         @!section('title')
     </title>
 </head>
-<body>
-    <header>
-        <a href="/" id="logo">JobPostr</a>
-        <nav>
-            <ul>
-                <li><a href="/">Trabalhos</a></li>
-                @loggedIn
-                <li><a href="/"><small>Ola, {{ auth.user.username }}</small></a></li>
-                <li><a href="{{ route('my.jobs') }}"><small>Minhas publicacoes</small></a></li>
-                <li><a href="/logout"><small>Sair</small></a></li>
+<body class="hero-anime">
+    <div class="navigation-wrap bg-light start-header start-style">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<nav class="navbar navbar-expand-md navbar-light">
 
-                @else
-                  
-                <li><a href="/login">Login</a></li>
-                <li><a href="/signup">Signup</a></li>
-                @endloggedIn
-                
-                
-            </ul>
-        </nav>
+						<a class="navbar-brand" href="" target="_blank"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/logo.svg" alt=""></a>	
+
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							<ul class="navbar-nav ml-auto py-4 py-md-0">
+								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
+									<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" href="#">Action</a>
+										<a class="dropdown-item" href="#">Another action</a>
+										<a class="dropdown-item" href="#">Something else here</a>
+										<a class="dropdown-item" href="#">Another action</a>
+									</div>
+								</li>
+								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link" href="#">Portfolio</a>
+								</li>
+								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link" href="#">Agency</a>
+								</li>
+								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" href="#">Action</a>
+										<a class="dropdown-item" href="#">Another action</a>
+										<a class="dropdown-item" href="#">Something else here</a>
+										<a class="dropdown-item" href="#">Another action</a>
+									</div>
+								</li>
+								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link" href="#">Journal</a>
+								</li>
+								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link" href="#" style="margin-top: 7px;">
+                                        <div id="switch">
+                                            <div id="circle"></div>
+                                        </div>
+                                    </a>
+								</li>
+							</ul>
+						</div>
+
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+
     </header>
 
     <div class="container">
         @!section('content')
+        <div class="section mt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://themeforest.net/user/ig_design/portfolio"      class="link-to-portfolio" target=”_blank”></a>
     </div>
+    {{ script('jquery-3.2.1.min.js') }}
+    {{ script('bootstrap.min.js') }}
+    {{ script('jobpost.js') }}
 </body>
 </html>
